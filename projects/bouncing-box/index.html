@@ -6,17 +6,20 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
+  			width: 80px;
 			height: 70px;
-			background-color: teal;
+			background-color: orange;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 			font-size: 300%;
 			text-align: center;
 			display: block;
 			position: absolute;
 			top: 100px;
 			left: 0px;  /* <--- Change me! */
+			
 		}
 		.board{
+			background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/84dc13b7-a2e7-4b45-83ec-311e72e82900/dcyxrxa-b0498050-582a-444a-b93c-721703d71848.png/v1/fill/w_960,h_600,q_80,strp/kame_house_bg__xkeeperz__by_maxiuchiha22_dcyxrxa-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvODRkYzEzYjctYTJlNy00YjQ1LTgzZWMtMzExZTcyZTgyOTAwXC9kY3l4cnhhLWIwNDk4MDUwLTU4MmEtNDQ0YS1iOTNjLTcyMTcwM2Q3MTg0OC5wbmciLCJ3aWR0aCI6Ijw9OTYwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.oZpicKrwBM_FC7jzByoYruhzUUr9EDzBQ97KK-iRzqE);
 			height: 100vh;
 		}
 	</style>
@@ -49,7 +52,9 @@
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
 				box.css("left", newPositionX);
+			
 			}
+
 
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
@@ -62,6 +67,8 @@
 			
 			// TODO 2 - Variable declarations 
 			var positionx = 0
+			
+			var speed = 2
 			var points = 0
 
 			
@@ -71,8 +78,14 @@
 			turn it around! 
 			*/
 			function update() {
-				positionx = positionx + 10
-				moveBoxTo(positionx)
+				positionx = positionx + speed
+			if (positionx > 350) {
+				speed = -speed;
+			}
+			if (positionx < 10){
+				speed = speed + 1;
+			}
+						moveBoxTo(positionx)
 				
 				
 
@@ -85,7 +98,9 @@
 			*/
 			function handleBoxClick() {
 				positionx = 0
-				points = points + 1
+							points = points + 1
+							speed = speed + 3
+						
 				changeBoxText(points);
 				
 
