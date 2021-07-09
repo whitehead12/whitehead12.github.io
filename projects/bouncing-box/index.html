@@ -61,7 +61,8 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionx = 10
+			var positionx = 0
+			var points = 0
 
 			
 			/* 
@@ -83,6 +84,9 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+				positionx = 0
+				points = points + 1
+				changeBoxText(points);
 				
 
 
